@@ -1,0 +1,3 @@
+* We analyzed archetype semantics in ISO 13606
+* Typed lambda calculus is used for formalization of the semantics.
+* We found that archetypes should be covariant and immutable schemas.

@@ -1,0 +1,8 @@
+
+
+style cheking
+
+> rake check:all
+> rake check:weasel
+> rake check:passive
+> rake check:style

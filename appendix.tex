@@ -1,0 +1,80 @@
+\appendix[Symply typed lambda calculus]
+
+\begin{figure}[!htbp]
+\begin{alignat}{3}
+  \text{Terms:} \qquad\qquad\qquad      & \nonumber \label{eq:terms_simple_typed_lambda} \\
+                               M~ & {::= } ~ {c^{\kappa}} & \qquad Constant\\
+                                  & | ~ {x} & \qquad Variable \\
+                                  & | ~ {\lambda x:\tau.M} & \qquad \lambda~abstraction \label{eqn:typed_lambda-abstraction}\\
+                                  & | ~ {M~M} & \qquad Application\\
+                                  & | ~ \text{foldr}~(\oplus{})~M & \qquad fold right\\
+                                  & | ~ [~] & \qquad empty list\\
+                                  & | ~ : & \qquad list constructor\\
+  \text{Types:} \qquad\qquad\qquad &       & \nonumber \\
+        {\kappa~ \in BasicType~~} &  {::= ~Bool~ | ~Int~ \dots}\\
+                \qquad {\tau~ \in Type~~}        &  {::= } {~\kappa~ } &   \qquad Basic~type\\
+                                                 &  |      {~\tau_1 \rightarrow \tau_2~} & \qquad Function~type
+\end{alignat}
+\caption{Simply Typed Lambda-Calculus}\label{eq:types_simple_typed_lambda}
+\end{figure}
+
+
+% http://ja.scribd.com/doc/132580356/Supplement
+
+\begin{align}
+  \text{Basic rules:}      & \nonumber \\
+  & \frac{}
+         {\Gamma\{x:\tau\} ~ \vdash x:\tau} \qquad x \not \in dom(\Gamma) & \qquad \text{(type var)}\\
+  & \frac{\Gamma~ \vdash \diamond \qquad \tau \in BasicType}
+         {\Gamma~ \vdash \tau}    & \text{(type const)}  \\
+  & \frac{\Gamma~ \vdash \tau \qquad \Gamma~ \vdash \sigma}
+         {\Gamma~ \vdash \tau \rightarrow \sigma}  & \text{(type arrow)}  \\
+  & \frac{\Gamma~ \{x:\tau\} ~ \vdash M:\sigma}
+         {\Gamma ~ \vdash \lambda x:\tau.M:\tau \rightarrow \sigma} & \text{(abstraction)} \\
+  & \frac{\Gamma \vdash M:\tau \rightarrow \sigma \qquad  \Gamma \vdash N:\tau}
+         {\Gamma ~ \vdash (M~N):\sigma} & \qquad \text{(application)} \label{application}\\
+\text{Subtyping rules:}   \nonumber\\
+  & \frac{\Gamma~ \vdash M : \tau'  \qquad \Gamma~ \vdash \tau' <: \tau}
+                                           {\Gamma~ \vdash M : \tau} & \text{(subsumption)}\\
+  & \frac{\Gamma~ \vdash M : \tau}
+                                    {\Gamma~ \vdash \tau <: \tau} & \text{(reflexive)}\\
+  & \frac{\Gamma~ \vdash \tau_1 <: \tau_2 \qquad \Gamma~ \vdash \tau_2 <: \tau_3}
+                                     {\Gamma~ \vdash \tau_1 <: \tau_3} & \text{(transitive)} \\
+  % & \frac{\Gamma~ \vdash \diamond}
+  %                                     {\Gamma~ \vdash Top} & \text{(top type)}  \\
+  % & \frac{\Gamma~ \vdash \tau}
+  %                                     {\Gamma~ \vdash \tau <: Top} & \text{(sub top)}\\
+  & \frac{\Gamma ~ \vdash \tau' <: \tau \qquad \Gamma ~ \vdash \sigma' <: \sigma'}
+         {\Gamma ~ \vdash \tau \rightarrow \sigma' <: \tau' \rightarrow \sigma} & \text{(function)}  \label{eqn:function_subtyping}
+\end{align}
+
+\begin{alignat}{3}
+\text{Record Type:} \qquad   \nonumber\\
+  \text{Term:} \qquad   \nonumber\\
+                        M~ & {::= ~~ \{l_1:M_1,\dots,l_n:M_n \}}\\
+                           & | ~~\{l_1:M_1,\dots,l_n:M_n \}.l_i\\
+  \text{Typing rules:} \qquad   \nonumber\\
+  & \frac{\Gamma \vdash M_i:\tau_i \qquad(i \in 1..n)}
+         {\Gamma ~ \vdash \{l_i: M_i\}: \{l_i : \tau_i\} }\\
+  & \frac{\Gamma \vdash \tau_i \qquad(m \leq n, i \in 1..n)}
+       {\Gamma ~ \vdash \{l_1: \tau,\dots l_m : \tau, \dots, l_n : \tau\}  <: \{l_1: \tau,\dots, l_m : \tau\}}\\
+  & \frac{\Gamma \vdash \tau'_i <: \tau_i  \qquad(i \in 1..n)}
+       {\Gamma ~ \vdash \{l_1: \tau'_1,\dots l_n : \tau'_n \}  <: \{l_1: \tau_1,\dots, l_n : \tau_n\}}\\
+\text{Variant:} \qquad   \nonumber\\
+  &   \frac{\Gamma~ \vdash \tau_i  \qquad(m \leq n, i \in 1..n)}
+       {\Gamma~ \vdash (l_1:\tau_1,\dots l_m:\tau_m) <: (l_1:\tau_1,\dots, l_m:\tau_m,\dots l_n:\tau_n)}\\
+  & \frac{\Gamma \vdash \tau'_i <: \tau_i  \qquad(i \in 1..n)}
+       {\Gamma ~ \vdash \{l_1: \tau'_1,\dots l_n : \tau'_n \}  <: \{l_1: \tau_1,\dots, l_n : \tau_n\}}\\
+  % & \frac{\Gamma \vdash \textcolor{red}{\tau'_i <: \tau_i}  \qquad(i \in 1..n)}
+  %      {\Gamma ~ \vdash (l_1: \textcolor{red}{\tau_1},\dots, l_n : \textcolor{red}{\tau_n})  <: (l_1: \textcolor{red}{\tau'_1},\dots, l_n : \textcolor{red}{\tau'_n})}\\
+\text{Reference:} \qquad   \nonumber\\
+  & \frac{\Gamma ~ \vdash \tau' <: \tau \qquad \Gamma ~ \vdash \tau <: \tau'}
+         {\Gamma ~ \vdash Ref(\tau') <: Ref(\tau)}\\
+\text{Mutable Record:} \qquad   \nonumber\\
+  & \frac{\Gamma \vdash M_i:Ref(\tau_i) \qquad  (i \in 1..n)}
+       {\Gamma ~ \vdash \{l_i: M_i\}: \{l_i : Ref(\tau_i)\} }\\
+\text{List:} \qquad   \nonumber\\
+  & \frac{\Gamma \vdash \tau' <: \tau}
+       {\Gamma ~ \vdash [\tau'] <: [\tau]}
+\end{alignat}
+

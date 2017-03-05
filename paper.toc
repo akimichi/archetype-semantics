@@ -1,0 +1,33 @@
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {subsection}{\numberline {1.1}Background}{2}
+\contentsline {subsection}{\numberline {1.2}Objective}{2}
+\contentsline {section}{\numberline {2}Material and Methods}{3}
+\contentsline {subsection}{\numberline {2.1}Concepts for EHR data integration}{3}
+\contentsline {subsubsection}{\numberline {2.1.1}Structural interoperability should be guaranteed}{3}
+\contentsline {subsubsection}{\numberline {2.1.2}EHR schema should be extensible}{4}
+\contentsline {subsection}{\numberline {2.2}ISO 13606 architecture}{4}
+\contentsline {subsubsection}{\numberline {2.2.1}Dual-model approach}{5}
+\contentsline {subsubsection}{\numberline {2.2.2}Specialization and composition of archetypes}{6}
+\contentsline {subsubsection}{\numberline {2.2.3}Variances of archetype }{6}
+\contentsline {subsection}{\numberline {2.3}Typed lambda calculus}{6}
+\contentsline {subsubsection}{\numberline {2.3.1}How type theory is applied to ISO 13606}{6}
+\contentsline {subsubsection}{\numberline {2.3.2}Introducing types}{8}
+\contentsline {subsubsection}{\numberline {2.3.3}Subtyping}{10}
+\contentsline {subsubsection}{\numberline {2.3.4}Type system and its deductive system}{12}
+\contentsline {subsection}{\numberline {2.4}Application of type theory to ISO 13606}{12}
+\contentsline {subsubsection}{\numberline {2.4.1}How to formalize queries }{13}
+\contentsline {subsubsection}{\numberline {2.4.2}How to introduce assignments for EHR data }{13}
+\contentsline {section}{\numberline {3}Results}{14}
+\contentsline {subsection}{\numberline {3.1}Archetypes should follow the subsumption principle}{14}
+\contentsline {subsection}{\numberline {3.2}Archetypes should be covariant}{14}
+\contentsline {subsection}{\numberline {3.3}Queries should be reusable}{15}
+\contentsline {subsection}{\numberline {3.4}Archetypes should be invariant if they are mutable schema}{16}
+\contentsline {subsection}{\numberline {3.5}Archetypes should be both covariant and immutable}{17}
+\contentsline {subsection}{\numberline {3.6}EHR data are safe}{17}
+\contentsline {section}{\numberline {4}Discussion}{18}
+\contentsline {subsection}{\numberline {4.1}Why formal semantics are needed}{18}
+\contentsline {subsection}{\numberline {4.2}Assets of typed lambda calculus}{18}
+\contentsline {subsection}{\numberline {4.3}Related research}{19}
+\contentsline {subsection}{\numberline {4.4}Limitations}{19}
+\contentsline {subsection}{\numberline {4.5}Prospectives}{20}
+\contentsline {section}{\numberline {5}Conclusions}{20}
