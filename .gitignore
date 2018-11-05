@@ -3,4 +3,5 @@
 *.blg
 *.log
 *.spl
+.sessions/
 
