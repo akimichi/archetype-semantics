@@ -15,6 +15,13 @@ The obtained results indicate that the archetypes should be covariant and immuta
 
 see https://github.com/akimichi/archetype-semantics/blob/master/paper.pdf
 
+
+<object data="https://github.com/akimichi/archetype-semantics/blob/master/paper.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://github.com/akimichi/archetype-semantics/blob/master/paper.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/akimichi/archetype-semantics/blob/master/paper.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
 ## style cheking
 
 ~~~
