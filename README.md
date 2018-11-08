@@ -13,7 +13,7 @@ The obtained results indicate that the archetypes should be covariant and immuta
 
 ## paper
 
-[embed]https://github.com/akimichi/archetype-semantics/blob/master/paper.pdf[/embed]
+see https://github.com/akimichi/archetype-semantics/blob/master/paper.pdf
 
 ## style cheking
 
