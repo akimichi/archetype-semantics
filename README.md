@@ -10,6 +10,11 @@ We focus on the variance and immutability of the archetype, because these factor
 We defined a type system that represents the fundamental components of ISO 13606 semantics and analyzed the semantics based on a deductive system of the type theory.
 The obtained results indicate that the archetypes should be covariant and immutable schemas in order to guarantee both the structural interoperability of EHR data and the extensibility of archetypes.
 
+
+## paper
+
+[embed]https://github.com/akimichi/archetype-semantics/blob/master/paper.pdf[/embed]
+
 ## style cheking
 
 ~~~
